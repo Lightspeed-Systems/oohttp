@@ -8911,11 +8911,11 @@ func (cc *http2ClientConn) encodeHeaders(req *Request, addGzipHeader bool, trail
 			m = MethodGet
 		}
 		f(":method", m)
+		f(":authority", host)
 		if req.Method != "CONNECT" {
 			f(":scheme", req.URL.Scheme)
 			f(":path", path)
 		}
-		f(":authority", host)
 		if trailers != "" {
 			f("trailer", trailers)
 		}
